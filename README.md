@@ -4,4 +4,5 @@ This repository contains small React projects I created while learning different
 
 ## 📘 Projects List
 
-1. **01-checkout stepper** 
+1. **01-checkout stepper**
+2. **02-multi step form** 
