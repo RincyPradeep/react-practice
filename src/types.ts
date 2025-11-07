@@ -9,7 +9,6 @@ export const personalInfoSchema = z.object({
     phoneNumber: z.string().min(10,"Phone number is too short"),
 })
 
-
 //schema for second form
 export const professionalInfoSchema = z.object({
     company: z.string().min(1,"Company is required"),
@@ -17,7 +16,6 @@ export const professionalInfoSchema = z.object({
     experience: z.enum(["0-2","3-5","6-10","10+"]),
     industry: z.string().min(1,"Industry is required"),
 })
-
 
 //schema for third form
 export const billingInfoSchema = z.object({
