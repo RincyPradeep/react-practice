@@ -28,7 +28,7 @@ const FormField = ({
         <Input id={id} type={type} maxLength={maxLength} {...register(id)} />
         {
             errors[id]&&
-            <p className='text-sm text-destructive'>errors[id]?.message</p>
+            <p className='text-sm text-destructive'>{errors[id]?.message}</p>
         }
     </div>
   )

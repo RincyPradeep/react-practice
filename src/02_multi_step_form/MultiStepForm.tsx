@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import ProgressSteps from '@/components/ProgressSteps'
 import { BillingInfoStep, PersonalInfoStep, ProfessionalInfoStep } from '@/components/steps'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { log } from 'console'
 
 
 export const MultiStepForm = () => {
@@ -47,8 +48,24 @@ export const MultiStepForm = () => {
 
   const onNext = async(data: StepFormData) =>{
     //Manual validation check
+    const isValid = await trigger();
+    if(!isValid) return; // Stop if validation fails
+
+    console.log(data, formData  )
+    const updatedData = {...formData, ...data }
+    updateFormData(updatedData)
 
     //Merge current step data with all previous data
+    if(isLastStep) {
+      try{
+        submitForm(updatedData)
+      }catch(error){
+        console.error("Submission failed:",error);
+        
+      }
+    } else{
+      goToNextStep()
+    }
   }
 
   return (

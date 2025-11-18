@@ -105,6 +105,12 @@ const ProfessionalInfoStep = ({register, errors, setValue }:StepProps) => {
             <p className='text-sm text-destructive'>{errors.experience.message}</p>
           }
         </div>
+        <FormField 
+          id= "industry"
+          label= "Industry"
+          register={register}
+          errors= {errors}
+        />
     </div>
   )
 }
@@ -112,7 +118,38 @@ const ProfessionalInfoStep = ({register, errors, setValue }:StepProps) => {
 
 const BillingInfoStep = ({register, errors}:StepProps) => {
   return (
-    <div>BillingInfoStep</div>
+    <div className='space-y-4'>
+      <CardTitle className='text-xl'>Billing Information</CardTitle>
+      <FormField 
+          id= "cardNumber"
+          label= "Card Number"
+          register={register}
+          errors= {errors}
+          maxLength={16}
+        />
+        <FormField 
+          id= "cardHolder"
+          label= "Cardholder Name"
+          register={register}
+          errors= {errors}
+        />
+        <div className='grid grid-cols-2 gap-4'>
+          <FormField 
+          id= "expiryDate"
+          label= "Expiry Date"
+          register={register}
+          errors= {errors}
+          maxLength={5}
+        />
+        <FormField 
+          id= "cvv"
+          label= "CVV"
+          register={register}
+          errors= {errors}
+          maxLength={4}
+        />
+        </div>
+    </div>
   )
 }
 
